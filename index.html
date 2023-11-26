@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Développement Durable</title>
+
+    <style>
+      :root {
+        --color-bg: #eceff1;
+        --color-card-bg: rgba(255, 255, 255, 0.7);
+        --color-primary: #2962ff;
+        --color-primary-light: #768fff;
+        --color-primary-dark: #0039cb;
+        --color-text: #212121;
+        --shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1),
+          0 16px 24px 2px rgba(0, 0, 0, 0.14),
+          0 6px 30px 5px rgba(0, 0, 0, 0.12);
+      }
+
+      body,
+      h1 {
+        margin: 0;
+        padding: 1em;
+        color: var(--color-text);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: var(--color-bg) url("./assets/mountains.jpeg") no-repeat
+          center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-backgound-size: cover;
+        background-size: cover;
+        animation: bg 15s infinite;
+      }
+
+      h1 {
+        color: var(--color-primary);
+        font-size: 2em;
+        animation: fadeIn 2s;
+      }
+
+      .container {
+        width: 80%;
+        animation: slideUp 2s;
+      }
+
+      .qa {
+        background-color: var(--color-card-bg);
+        box-shadow: var(--shadow);
+        padding: 1rem;
+        border-radius: 5px;
+        margin-bottom: 2rem;
+        font-size: 1.2em;
+        line-height: 1.5;
+        animation: fadeIn 2s;
+      }
+
+      .q {
+        margin-bottom: 1rem;
+        font-weight: bold;
+      }
+
+      .a {
+        text-align: justify;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      /* added animation */
+      @keyframes bg {
+        0% {
+          background-position: 0 0;
+        }
+        50% {
+          background-position: 0 100%;
+        }
+        100% {
+          background-position: 0 0;
+        }
+      }
+    </style>
+
+    <script>
+      function showQuestions() {
+        const questions = [
+          "Votre entreprise a décidé d’acquérir une solution SaaS pour son portail de statistiques auprès d’un éditeur...",
+          "Quels éléments du cours allez-vous utiliser dans votre alternance ....",
+          "Comment évaluez-vous la maturité de sobriété numérique de votre organisation...",
+          "Comment imaginez-vous le numérique en 2050?...",
+        ];
+
+        const responses = [
+          `En tant que responsable du projet, voici quelques critères de sobriété numérique qui me semblent non négociables et que je pourrais formuler en tant que user stories :
+- Hébergement de proximité: 'En tant que responsable du projet, je veux que la solution SaaS soit hébergée localement pour minimiser la latence et le coût énergétique associé aux longues distances de transmission de données.'
+...
+- Efficacité énergétique du matériel utilisé pour l'hébergement : 'En tant que responsable du projet, j'exige que les serveurs utilisés pour héberger la solution SaaS soient économes en énergie et que la demande d'énergie ne soit pas plus élevée que nécessaire pour fonctionner efficacement.'
+Ces critères sont essentiels pour garantir que la solution respecte les principes de sobriété numérique, tout en maintenant une performance optimale.`,
+          `Principe de sobriété numérique : C'est un principe essentiel que j'utiliserais dans ma pratique quotidienne, que ce soit dans la conception de logiciels dans le cadre d'une alternance ou dans la gestion de mes activités numériques en tant qu'étudiant. ...`,
+          `Analyser l'infrastructure technologique : Évaluez la technologie que l'organisation utilise. Y a-t-il des efforts pour utiliser du matériel économe en énergie ? L'infrastructure technologique est-elle régulièrement mise à jour pour maximiser l'efficacité ?...`,
+          `D'ici 2050, j'imagine plusieurs progressions significatives dans le monde numérique:
+
+
+
+Internet des objets (IoT) omniprésent : D'ici 2050, presque tous les appareils que nous utilisons au quotidien seront connectés à Internet. Des voitures autonomes aux réfrigérateurs intelligents, nous vivrons dans un monde où les appareils seront capables de communiquer entre eux pour optimiser notre vie quotidienne.
+
+IA et automatisation : L'intelligence artificielle et l'automatisation auront un impact profond sur notre vie et notre travail. Beaucoup de tâches et de postes seront automatisés, créant des opportunités et des défis en termes d'emploi et d'économie. L'IA pourrait également jouer un rôle clé dans la prise de décisions, l'analyse de données et la création de produits et services plus intuitifs et personnalisés.
+
+Réalité augmentée/VR : La réalité virtuelle et augmentée deviendra probablement une partie courante de notre vie quotidienne. Que ce soit pour l'apprentissage, le travail ou le divertissement, ces technologies offriront des expériences immersives et enrichies.
+
+5G et au-delà : La connectivité sera plus rapide et plus fiable que jamais grâce à l'évolution des technologies de réseau telles que la 5G et au-delà. Cela ouvrira la voie à une nouvelle vague d'innovations et rendra possibles des avancées comme l'Internet des objets et les villes intelligentes.
+
+Sobriété numérique : Compte tenu des préoccupations croissantes concernant le changement climatique et l'empreinte carbone, il est probable que la sobriété numérique jouera un rôle de plus en plus important dans la façon dont nous utilisons et concevons la technologie.`,
+        ];
+
+        for (let i = 1; i <= 4; i++) {
+          const el = document.getElementById(`qa${i}`);
+          el.innerHTML = `<div class="q">Q: ${
+            questions[i - 1]
+          }</div><div class="a">A: ${responses[i - 1]}</div>`;
+        }
+      }
+    </script>
+  </head>
+
+  <body onload="showQuestions()">
+    <h1>Développement Durable</h1>
+    <div class="container">
+      <div id="qa1" class="qa"></div>
+      <div id="qa2" class="qa"></div>
+      <div id="qa3" class="qa"></div>
+      <div id="qa4" class="qa"></div>
+    </div>
+  </body>
+</html>
